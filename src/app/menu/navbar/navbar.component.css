@@ -1,0 +1,44 @@
+.fijado {
+    position: sticky;
+    /* aqui le agregamos mas stylos para mavegadores safary */
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.example-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border: 1px solid #555;
+}
+
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-sidenav {
+    padding: 20px;
+    background-color: #AED6F1;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.container {
+    padding: 10px;
+}
+
+.example-container {
+    width: 100%;
+    height: 580px;
+}
+
+.example-sidenav {
+    padding: 20px;
+    height: 500px;
+}

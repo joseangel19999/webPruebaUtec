@@ -1,0 +1,105 @@
+<!-- <mat-toolbar class="fijado" color="primary"> -->
+<!-- <a mat-fab color="primary">
+        <mat-icon>menu</mat-icon>
+    </a> -->
+<!--  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>menu</mat-icon>
+    </button> -->
+<!--     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+</mat-toolbar> -->
+<!-- <mat-drawer-container class="example-container" autosize>
+    <mat-toolbar color="primary">
+        <button (click)="drawer.toggle()" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+          </button> CODE UTHH
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" routerLink="/home">
+          <mat-icon>home</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon favorite-icon" routerLink="/acercade">
+          <mat-icon>help_outline</mat-icon>
+        </button>
+        <a mat-button color="success" routerLink="/personas">
+          Registrate
+        </a>
+        <button mat-icon-button class="example-icon" routerLink="/login">
+          <mat-icon>vpn_key</mat-icon>
+        </button>
+        <button *ngIf="correoUser" mat-icon-button class="example-icon" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <p>ADMINISTRACION CODE-UTHH</p>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/alumnos">Alumno</a>
+            <a mat-list-item routerLink="/profesores">Profesores</a>
+            <a mat-list-item routerLink="/home">Home</a>
+            <a mat-list-item routerLink="/login">Login</a>
+            <a mat-list-item routerLink="/acercade">Acerca de</a>
+            <a mat-list-item href="#">Salir</a>
+        </mat-nav-list>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+
+</mat-drawer-container> -->
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="primary">
+            <span>menu</span>
+            <small class="spacer"></small>
+            <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/usuarios">Usuarios</a>
+            <a mat-list-item routerLink="/personas">Personas</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar color="primary">
+        <button *ngIf="getUsuario!=null" mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+        <span class="example-spacer"></span>
+        <small *ngIf="getUsuario!=null">Usuario: {{ getUsuario.email }}</small>
+        <div *ngIf="getUsuario==null">
+            <button mat-icon-button class="example-icon favorite-icon" routerLink="/home">
+            <mat-icon>home</mat-icon>
+          </button>
+            <button mat-icon-button class="example-icon favorite-icon" routerLink="/acercade">
+            <mat-icon>help_outline</mat-icon>
+          </button >
+        </div>
+    <!--   <a *ngIf="getUsuario!=null" mat-button color="success" routerLink="/usuarios">
+        Usuarios
+      </a>
+      <a *ngIf="getUsuario!=null" mat-button color="success" routerLink="/personas">
+        Personas
+      </a> -->
+        <button *ngIf="getUsuario==null" mat-icon-button class="example-icon" routerLink="/login">
+        <mat-icon>vpn_key</mat-icon>
+      </button>
+
+            <button *ngIf="getUsuario!=null" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button  >
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item >
+                <mat-icon>account_circle</mat-icon>
+          <span>Perfil</span>
+        </button>
+            <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Salir</span>
+        </button>
+            </mat-menu>
+    </mat-toolbar>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

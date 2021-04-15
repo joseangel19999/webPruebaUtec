@@ -1,0 +1,39 @@
+<div fxLayout="Column" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div fxFlex="40">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Login de Usuario</mat-card-title>
+                <mat-card-subtitle>Ingrese sus datos</mat-card-subtitle>
+
+                <div *ngIf="loginU==true;then login "></div>
+                <ng-template #login>
+                    <mat-spinner mode="indeterminate" [diameter]="30"></mat-spinner>
+                </ng-template>
+            </mat-card-header>
+            <mat-card-content>
+                <form fxLayout="Column" [formGroup]="formulario" (ngSubmit)="validarUsuario()">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Correo</mat-label>
+                        <input matInput type="email" formControlName="correo">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                    </mat-form-field>
+                    <div>
+                        <button type="submit" mat-raised-button color="primary">Ingresar
+                        </button> /
+                        <button type="button" mat-raised-button color="warn">Cancelar</button>
+
+                    </div>
+
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <a routerLink="/registrar">No tienes cuenta? Registrate</a>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://rciminternet.com/wp-content/uploads/2019/04/usuario.png');
+    background-size: cover;
+}
+
+.content-login {
+    margin-left: auto;
+    display: -moz-grid;
+    margin-right: auto;
+}
+
+.textCentrado {
+    margin-left: 50px;
+}
+
+.mat-spinner {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 5px 10px 0px 0px;
+}

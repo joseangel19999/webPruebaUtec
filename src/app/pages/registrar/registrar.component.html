@@ -1,0 +1,70 @@
+<div *ngIf="formulario==null; then modifi else regis"></div>
+<ng-template #modifi>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+<ng-template #regis>
+    <div style="margin: 5px;">
+        <div *ngIf="usuario!=null; then modificar else registrar"></div>
+        <ng-template #modificar>
+            <h2>Modificar Usuario</h2>
+        </ng-template>
+        <ng-template #registrar>
+            <h2>Registrar Usuario</h2>
+        </ng-template>
+        <mat-card>
+            <mat-card-title>Ingrese sus datos {{ validatos }}</mat-card-title>
+            <mat-sidenav-container>
+                <!-- se hace una referencia al formulario usando [formGroup] tambien se le asigna un 
+                evento en el (ngSubmit)="guardarDatos()"
+                -->
+                <form [formGroup]="formulario" (ngSubmit)="guardarDatos()">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ingresa Correo</mat-label>
+                        <input type="email" matInput formControlName="correo">
+                        <mat-error *ngIf="formulario.invalid">{{ obtenerErrorEmail() }}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nombre completo</mat-label>
+                        <input type="text" matInput formControlName="nombreCompleto">
+                        <mat-error *ngIf="formulario.invalid">{{ obtenerErrorNombreCompleto() }}</mat-error>
+                    </mat-form-field>
+                    <div *ngIf="usuario; then contenedorModificar else contenedorRegistrar"></div>
+                    <ng-template #contenedorModificar>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Password actual</mat-label>
+                            <input type="password" matInput formControlName="password">
+                            <mat-error *ngIf="formulario.invalid">Password Actual requerido</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>nuevo Password</mat-label>
+                            <input type="password" matInput formControlName="passwordNuevo" placeholder="confirmar Password">
+                            <mat-error *ngIf="formulario.invalid">Password nuevo requerido</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Confirmar Password</mat-label>
+                            <input type="password" matInput formControlName="passwordConfirmar" placeholder="confirmar Password">
+                            <mat-error *ngIf="formulario.invalid">{{ errorsPasswprd }}</mat-error>
+                        </mat-form-field>
+                    </ng-template>
+                    <ng-template #contenedorRegistrar>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ingresa Password</mat-label>
+                            <input type="password" matInput formControlName="password">
+                            <mat-error *ngIf="formulario.invalid">{{ obtenerErrorPassword() }}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Confirmar Password</mat-label>
+                            <input type="password" matInput formControlName="passwordConfirm" placeholder="confirmar Password">
+                            <mat-error *ngIf="formulario.invalid">{{ obtenerErrorPassword() }}</mat-error>
+                        </mat-form-field>
+                    </ng-template>
+                    <div>
+                        <button type="submit" mat-raised-button color="primary">{{ usuario==null?'Registrar':'Guardar' }}</button>
+                        <!--  <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Registrar</button> -->
+                        <button type="button" routerLink="/usuarios" mat-raised-button color="warn">Cerrar</button>
+                    </div>
+                </form>
+            </mat-sidenav-container>
+        </mat-card>
+    </div>
+</ng-template>

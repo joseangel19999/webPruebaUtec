@@ -1,0 +1,37 @@
+.btn {
+    margin-left: 15px;
+}
+
+.container-personas {
+    margin: 20px;
+}
+
+.container-busqueda {
+    margin-top: 20px;
+}
+
+.columna {
+    display: grid;
+    grid-template-columns: 30%;
+}
+
+.filas {
+    display: grid;
+    grid-template-rows: 50px 100px 40px 60px 120px;
+}
+
+mat-form-field {
+    margin-left: 5px;
+}
+
+
+/* Structure */
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
