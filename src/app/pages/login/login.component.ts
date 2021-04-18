@@ -48,18 +48,17 @@ export class LoginComponent implements OnInit {
       }
       console.log(respuesta);
     },error=>{
-      this.mostrarSnackBar("Surgio un error al logear");
+      this.mostrarSnackBar("Surgio un error al logear !!!!");
       this.loginU=false;
       console.log(error);
     });
-   // this.router.navigate(['/personas']);
   }
   navegacion():void{
     this.router.navigate(['/usuarios']);
   }
   mostrarSnackBar(mensaje:string):void{
     this.snackbar.open(mensaje,'Ok',{
-      duration:2500,
+      duration:3000,
       verticalPosition:this.verticalPosition,
       horizontalPosition:this.horizontalPosition,
     })
