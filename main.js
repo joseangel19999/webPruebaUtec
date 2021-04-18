@@ -1356,6 +1356,8 @@ class LoginComponent {
             }
             console.log(respuesta);
         }, error => {
+            this.mostrarSnackBar("Surgio un error al logear");
+            this.loginU = false;
             console.log(error);
         });
         // this.router.navigate(['/personas']);
