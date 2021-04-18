@@ -24,6 +24,7 @@
         "@angular/platform-browser-dynamic": "~10.1.4",
         "@angular/router": "~10.1.4",
         "@asymmetrik/ngx-leaflet": "^8.1.0",
+        "@azure/ng-deploy": "^0.2.3",
         "express": "^4.17.1",
         "i": "^0.3.6",
         "leaflet": "^1.7.1",
