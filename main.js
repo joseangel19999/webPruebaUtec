@@ -1356,7 +1356,7 @@ class LoginComponent {
             }
             console.log(respuesta);
         }, error => {
-            this.mostrarSnackBar("Surgio un error al logear");
+            this.mostrarSnackBar("Surgio un error al logear !!!!");
             this.loginU = false;
             console.log(error);
         });
