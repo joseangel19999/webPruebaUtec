@@ -23,7 +23,7 @@ const _ROUTES:Routes=[
 ] 
 @NgModule({
     imports: [
-        RouterModule.forRoot(_ROUTES)
+        RouterModule.forRoot(_ROUTES,{ useHash: true })
     ],
     exports: [
         RouterModule
